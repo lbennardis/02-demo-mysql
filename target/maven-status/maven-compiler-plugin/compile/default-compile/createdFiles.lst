@@ -5,9 +5,12 @@ org\pongmatcher\Application.class
 org\pongmatcher\web\StandardOpenMatchFinder.class
 org\pongmatcher\domain\Match.class
 org\pongmatcher\web\MatchRequestController.class
+org\pongmatcher\web\UtentiController.class
+org\pongmatcher\domain\Utenti.class
 org\pongmatcher\domain\Result.class
 org\pongmatcher\web\OpenMatchFinder.class
 org\pongmatcher\web\EveryResourceController.class
 org\pongmatcher\repositories\MatchRequestRepository.class
+org\pongmatcher\repositories\UtentiRepository.class
 org\pongmatcher\web\ResultsController.class
 org\pongmatcher\repositories\MatchRepository.class

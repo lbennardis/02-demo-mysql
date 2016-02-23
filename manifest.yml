@@ -1,10 +1,10 @@
 ---
 applications:
-  - name: springpong
+  - name: 01-springpong
     buildpack: java_buildpack
     path: target/pong-matcher-spring-1.0.0.BUILD-SNAPSHOT.jar
     services:
-     - mysql
+     - mySqlBackingServices
     datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost/pong_matcher_spring_development

@@ -61,10 +61,18 @@ mysql -u root
 Create a database user and table in the MySQL REPL you just opened:
 
 ```sql
-CREATE USER 'springpong'@'localhost' IDENTIFIED BY 'springpong';
-CREATE DATABASE pong_matcher_spring_development;
-GRANT ALL ON pong_matcher_spring_development.* TO 'springpong'@'localhost';
-exit
+
+
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT
+ OPTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
+
+
+
 ```
 
 Start the application server from your IDE or the command line:
