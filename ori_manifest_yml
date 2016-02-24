@@ -12,4 +12,4 @@ applications:
     password: springpong
     jpa:
     hibernate.ddl-auto: none
-    show_sql: false
+    show_sql: false 
