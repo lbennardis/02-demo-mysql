@@ -1,5 +1,8 @@
 package org.pongmatcher;
 
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -58,17 +61,18 @@ public class Application {
     	}
 }
 
-@RepositoryRestResource
-interface IBatterie extends JpaRepository<Batterie, Long> {
-	
+@RepositoryRestResource(collectionResourceRel = "batterie", path = "batterie")
+interface IBatterie extends PagingAndSortingRepository<Batterie, String> {
+	List<Batterie> findBystazione(@Param("stazione") String stazione);
 }
 
 @Entity
+@Table(name = "batterie")
 class Batterie {
 	
 	    
 		@Id
-		@GeneratedValue
+		//@GeneratedValue
 		@Column(name = "codice", unique = true, nullable = false)private String codice;
 		    
 		private String stazione;
