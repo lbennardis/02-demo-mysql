@@ -1,11 +1,14 @@
 org\pongmatcher\domain\MatchRequest.class
 org\pongmatcher\web\MatchesController.class
+org\pongmatcher\Application.class
+org\pongmatcher\Batterie.class
 org\pongmatcher\web\MatchRequestController.class
 org\pongmatcher\web\UtentiController.class
 org\pongmatcher\domain\Result.class
 org\pongmatcher\repositories\MatchRequestRepository.class
 org\pongmatcher\repositories\UtentiRepository.class
 org\pongmatcher\repositories\MatchRepository.class
+org\pongmatcher\IBatterie.class
 org\pongmatcher\repositories\ResultRepository.class
 org\pongmatcher\web\StandardOpenMatchFinder.class
 org\pongmatcher\domain\Match.class
