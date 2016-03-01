@@ -4,9 +4,13 @@ package org.pongmatcher.web;
 
 import java.util.List;
 
+
+
 import org.pongmatcher.domain.Match;
+import org.pongmatcher.domain.Stazione;
 import org.pongmatcher.domain.Utenti;
 import org.pongmatcher.repositories.MatchRepository;
+import org.pongmatcher.repositories.StazioniNamedQueryRepository;
 import org.pongmatcher.repositories.UtentiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,13 +23,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UtentiController {
 
-    private final UtentiRepository usrRepository;
+	private final UtentiRepository usrRepository;
+	private final StazioniNamedQueryRepository stazioniRepository;
 
     @Autowired
-    UtentiController(UtentiRepository userRepository) {
+    UtentiController(UtentiRepository userRepository,StazioniNamedQueryRepository stazioniRepository ) {
         this.usrRepository = userRepository;
+        this.stazioniRepository = stazioniRepository;
     }
-
+    
+    
     @RequestMapping(method = RequestMethod.GET, value = "/utenti/{id}")
     ResponseEntity <Utenti> show(@PathVariable String id) {
         
@@ -47,9 +54,28 @@ public class UtentiController {
     	System.out.println(lista.get(1).getNome());
     	System.out.println(lista.get(1).getCognome());
     	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	return new ResponseEntity<>(lista.get(1), HttpStatus.OK);
     	
     	//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    
+    
+    
+    @RequestMapping(value = "/stazione/search/{latitudine}")
+	public List<Stazione> getStazionePiuVicina(@PathVariable long latitudine,
+												@PathVariable long longitudine,@PathVariable long distanza) {
+		List<Stazione> stazioni = stazioniRepository.findNearest(latitudine, longitudine, distanza);
+		return stazioni;
+	}
+    
+    
+    
 
 }
