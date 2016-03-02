@@ -2,14 +2,24 @@ package org.pongmatcher.web;
 
 
 
+ 
+import java.util.Iterator;
 import java.util.List;
 
 
 
+
+
+
+
+
 import org.pongmatcher.domain.Match;
-import org.pongmatcher.domain.Stazione;
+import org.pongmatcher.domain.Indirizzi;
+import org.pongmatcher.domain.Prenotazioni;
 import org.pongmatcher.domain.Utenti;
 import org.pongmatcher.repositories.MatchRepository;
+import org.pongmatcher.repositories.PrenotazioniRepository;
+import org.pongmatcher.repositories.ResultRepository;
 import org.pongmatcher.repositories.StazioniNamedQueryRepository;
 import org.pongmatcher.repositories.UtentiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +35,18 @@ public class UtentiController {
 
 	private final UtentiRepository usrRepository;
 	private final StazioniNamedQueryRepository stazioniRepository;
+	private final PrenotazioniRepository prenotazioniRepository;
 
     @Autowired
-    UtentiController(UtentiRepository userRepository,StazioniNamedQueryRepository stazioniRepository ) {
+    UtentiController(UtentiRepository userRepository,StazioniNamedQueryRepository stazioniRepository , PrenotazioniRepository prenotazioniRepository) {
         this.usrRepository = userRepository;
         this.stazioniRepository = stazioniRepository;
+        this.prenotazioniRepository = prenotazioniRepository;
     }
     
     
     @RequestMapping(method = RequestMethod.GET, value = "/utenti/{id}")
-    ResponseEntity <Utenti> show(@PathVariable String id) {
+    ResponseEntity<List<Indirizzi>> show(@PathVariable String id) {
         
     	
     	List<Utenti> lista = usrRepository.findAll();
@@ -55,25 +67,33 @@ public class UtentiController {
     	System.out.println(lista.get(1).getCognome());
     	
     	
+    	List<Indirizzi> indirizzi = stazioniRepository.findNearest(41,12,Double.valueOf(1000));
+    	//List<Indirizzi> indirizzi = stazioniRepository.findNearest();
+		
+    	System.out.println("NUMERO ELEMENTI --> " + indirizzi.size());
     	
     	
     	
+    	//System.out.println(indirizzi.get(1).toXML());
     	
     	
+    	Prenotazioni prenotazione = new Prenotazioni( "AAAA", "BBBBB", "WWWWW", 33, 44);
     	
-    	return new ResponseEntity<>(lista.get(1), HttpStatus.OK);
+    	this.prenotazioniRepository.saveAndFlush(prenotazione);
+        
+    	
+    	//return new ResponseEntity<>(result, HttpStatus.CREATED);
+        
+        
+    	
+    	return new ResponseEntity<>(indirizzi, HttpStatus.OK);
+    	//return new ResponseEntity<>(lista , HttpStatus.OK);
     	
     	//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     
     
-    @RequestMapping(value = "/stazione/search/{latitudine}")
-	public List<Stazione> getStazionePiuVicina(@PathVariable long latitudine,
-												@PathVariable long longitudine,@PathVariable long distanza) {
-		List<Stazione> stazioni = stazioniRepository.findNearest(latitudine, longitudine, distanza);
-		return stazioni;
-	}
     
     
     

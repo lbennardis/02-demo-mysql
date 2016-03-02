@@ -1,13 +1,15 @@
+C:\development\02-demo-mysql\src\main\java\org\pongmatcher\domain\Prenotazioni.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\domain\Result.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\UtentiRepository.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\domain\Utenti.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\MatchRequestRepository.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\ResultRepository.java
-C:\development\02-demo-mysql\src\main\java\org\pongmatcher\domain\Stazione.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\MatchRepository.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\web\UtentiController.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\web\MatchRequestController.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\web\ResultsController.java
+C:\development\02-demo-mysql\src\main\java\org\pongmatcher\domain\Indirizzi.java
+C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\PrenotazioniRepository.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\repositories\StazioniNamedQueryRepository.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\Application.java
 C:\development\02-demo-mysql\src\main\java\org\pongmatcher\web\OpenMatchFinder.java
