@@ -1,3 +1,8 @@
+
+drop database pong_matcher_spring_development;
+
+
+
 set @orig_lat=41.93236; set @orig_lon=12.52021;set @dist=10;
 SELECT nome,
 3956 * 2 * (ASIN(
